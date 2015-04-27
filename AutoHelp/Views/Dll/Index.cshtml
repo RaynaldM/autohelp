@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Assembly Docs";
+}
+@using AutoHelp.Helpers
+@model AutoHelp.domain.Models.Assembly
+@section scripts
+{
+    @Html.CompressedPartial("_Namespaces")
+    @Html.CompressedPartial("_Typebaselist")
+    @Html.CompressedPartial("_Typebase-Classes")
+    @Html.CompressedPartial("_Typebase-Enumerations")
+    @Html.CompressedPartial("_Typebase-Delegates")
+    @Html.CompressedPartial("_Typebase-Interfaces")
+    @Html.CompressedPartial("_Typebase-Structures")
+    @Html.CompressedPartial("_PopOver")
+    <script src="~/Scripts/ts/Dll.js"></script>
+    <script>
+        var CurrentBasePage = new DllIndexPage(
+        {
+            DllId: '@Model.Id',
+            urlGet: '@Url.RootUrl()/api/Assemblies'
+        });
+    </script>
+}
+<h2>@Model.Name &nbsp;<small>@Model.FullName</small></h2>
+<div class="row" style="height:85%;min-height: 85%;">
+    <div class="col-md-3 fullheight">
+        <h3>Namespaces</h3>
+        <div class="divScroll">
+            <ul id="nmlist" class="list-group"></ul>
+        </div>
+    </div>
+    <div class="col-md-3 fullheight">
+        <h3 id="typebasetitle"></h3>
+        <div class="divScroll">
+            <div id="nmsublist"></div>
+        </div>
+    </div>
+    <div id="typebase" class="col-md-6 row fullheight">
+    </div>
+</div>

@@ -1,0 +1,24 @@
+﻿<script id="namespaces-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <li class="list-group-item">
+        <h5 class="list-group-item-heading hideOverflow">{{Name}}</h5>
+        <div class="list-group-item-text">
+            {{#ifGreater ClassCount 0}}
+            <a class="btn btn-xs btn-warning" href="#" data-id="{{Name}}" data-type="0" title="# of classes">{{ClassCount}} Classes</a>
+            {{/ifGreater}}
+            {{#ifGreater StructureCount 0}}
+            <a class="btn btn-xs btn-info" href="#" data-id="{{Name}}" data-type="1" title="# of structures">{{StructureCount}} Structures</a>
+            {{/ifGreater}}
+            {{#ifGreater InterfaceCount 0}}
+            <a class="btn btn-xs btn-primary" href="#" data-id="{{Name}}" data-type="2" title="# of interfaces">{{InterfaceCount}} Interfaces</a>
+            {{/ifGreater}}
+            {{#ifGreater EnumerationCount 0}}
+            <a class="btn btn-xs btn-primary" href="#" data-id="{{Name}}" data-type="3" title="# of enumerations">{{EnumerationCount}} Enums</a>
+            {{/ifGreater}}
+            {{#ifGreater DelegateCount 0}}
+            <a class="btn btn-xs btn-primary" href="#" data-id="{{Name}}" data-type="4" title=" # of delegates">{{DelegateCount}} Delegates</a>
+            {{/ifGreater}}
+        </div>
+    </li>
+    {{/each}}
+</script>

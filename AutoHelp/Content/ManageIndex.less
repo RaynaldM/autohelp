@@ -1,0 +1,31 @@
+﻿@import 'bootswatch.cosmo/variables.less';
+
+.dllChoice {
+    background-color: @brand-primary-light;
+}
+
+.dllChoice:hover, .dllChoice:focus, .dllChoice:active {
+    background-color: @brand-danger;
+    cursor: pointer;
+}
+
+a.dllChoice:hover, a.dllChoice:hover, a.dllChoice:active {
+    text-decoration: none;
+    border-color: @brand-danger;
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}

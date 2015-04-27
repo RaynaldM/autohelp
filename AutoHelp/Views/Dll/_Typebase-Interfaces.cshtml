@@ -1,0 +1,16 @@
+﻿@using AutoHelp.Helpers
+<script id="typebaseInterfaces-template" type="text/x-handlebars-template">
+    <div id="headdetail" class="col-md-12" style="height:24%;min-height: 24%;max-height: 24%">
+        @Html.CompressedPartial("_TypeBaseHead")
+    </div>
+    <div class="col-md-6 height80">
+        <h4>Methods</h4>
+        @Html.CompressedPartial("_Method")
+    </div>
+
+    <div class="col-md-6 height80">
+        <h4>Properties</h4>
+        @Html.CompressedPartial("_Property")
+    </div>
+
+</script>

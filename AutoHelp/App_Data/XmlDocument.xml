@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AutoHelp</name>
+    </assembly>
+    <members>
+        <member name="M:AutoHelp.Controllers.AssembliesController.Get">
+            <summary>
+            Gets some very important data from the server.
+            </summary>
+        </member>
+        <member name="M:AutoHelp.Controllers.AssembliesController.Get(System.Guid)">
+            <summary>
+            Looks up some data by ID.
+            </summary>
+            <param name="id">The ID of the data.</param>
+        </member>
+        <member name="T:AutoHelp.Helpers.NoCache">
+            <summary>
+            Used attribute to remove cache page for each call to server
+            Place attribute on controller method
+            </summary>
+        </member>
+    </members>
+</doc>

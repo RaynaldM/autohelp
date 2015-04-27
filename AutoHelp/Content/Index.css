@@ -1,0 +1,15 @@
+.dllChoice {
+  background-color: #e6e6e6;
+}
+.dllChoice:hover,
+.dllChoice:focus,
+.dllChoice:active {
+  background-color: #ff7518;
+  cursor: pointer;
+}
+a.dllChoice:hover,
+a.dllChoice:hover,
+a.dllChoice:active {
+  text-decoration: none;
+  border-color: #ff7518;
+}

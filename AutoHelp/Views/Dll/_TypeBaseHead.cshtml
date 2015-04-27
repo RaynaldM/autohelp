@@ -1,0 +1,29 @@
+﻿<h3 title="{{Fullname}}">
+    {{Name}}
+    <small>
+        {{#if IsPublic}}
+        <span class="pull-right label label-primary">Public</span>
+        {{else}}
+        <span class="pull-right label label-default">Private</span>
+        {{/if}}
+        {{#if IsAbstract}}
+        <span class="pull-right label label-info">Abstract</span>
+        {{/if}}
+        {{#if IsSealed}}
+        <span class="pull-right label label-warning">Sealed</span>
+        {{/if}}
+    </small>
+</h3>
+<p>{{Summary}}</p>
+<small class="hideOverflow text-muted hidden">{{{Remarks}}}</small>
+<small class="hideOverflow text-muted hidden">{{Example }}</small>
+<ol class="breadcrumb" style="margin-bottom: 0; padding: 0;">
+    <li>Inherited</li>
+    {{#each Parents}}
+    <li>
+        <small>
+            <a href="#" title="{{Fullname}}" data-id="{{Fullname}}">{{Name}}</a>
+        </small>
+    </li>
+    {{/each}}
+</ol>

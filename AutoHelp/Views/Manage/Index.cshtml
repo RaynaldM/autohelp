@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "Manage Assemblies";
+}
+@section head
+{
+    <link href="~/Content/ManageIndex.css" rel="stylesheet" />
+}
+@section scripts
+{
+    <script id="list-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="col-xs-12 col-sm-6 col-md-3 ">
+            <a id="{{Id}}" class="thumbnail dllChoice">
+                <div class="caption">
+                    <h3>{{Name}}</h3>
+                    <p>{{FullName}}</p>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </script>
+    <script id="modal-template" type="text/x-handlebars-template">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Delete an Assembly : {{Name}}</h4>
+        </div>
+        <div class="modal-body">
+            <p>{{FullName}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" id="deleteButton" class="btn btn-primary" data-id="{{Id}}">Delete</button>
+        </div>
+    </script>
+    @Scripts.Render("~/bundles/manage")
+    <script>
+        var CurrentBasePage = new ManageIndexPage(
+        {
+            urlFiles: 'api/Files',
+            urlReset:'@Url.Action("ResetAssemblies","Manage")'
+        });
+    </script>
+}
+<h2 class="col-md-4">@ViewBag.Title</h2>
+<div class="col-md-8">
+    @using (Html.BeginForm("AssemblyAdd", "Manage", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-inline", role = "form" }))
+    {
+        <div class="form-group col-md-5">
+            <input class="filestyle" type="file" name="files" data-buttontext="Find Dll file" data-buttonname="btn-primary">
+        </div>
+        <div class="form-group col-md-5">
+            <input class="filestyle" type="file" name="files" data-buttontext="Find XML file" data-buttonname="btn-primary">
+        </div>
+        <input class="btn btn-default" type="submit" value="Upload Files to Server">
+    }
+    <div class="progress" style="margin-top: 6px">
+        <div class="bar"></div>
+        <div class="percent">0%</div>
+    </div>
+
+    <div id="status"></div>
+</div>
+<div id="dlist" class="row">
+</div>
+
+<div id="assModal" class="modal fade">
+    <div class="modal-dialog">
+        <div id="modal-content" class="modal-content">
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

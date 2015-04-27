@@ -1,0 +1,40 @@
+﻿@*@using Microsoft.AspNet.Identity*@
+@if (Request.IsAuthenticated)
+{
+    @*using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()*@
+
+        <ul class="nav navbar-nav navbar-right">
+            <li id="errornavmenu" class="dropdown hidden">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Errors&nbsp;
+                    <span id="errorcount" class="label label-warning"></span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu" id="errornavlist">
+
+                    <li class="divider"></li>
+                    <li><a href="#" class="text-center">View All</a></li>
+                </ul>
+            </li>
+            @*<li>
+                     @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Administrer" })
+            </li>*@
+            @*     <li><a href="javascript:document.getElementById('logoutForm').submit()">Se déconnecter</a></li>*@
+
+        </ul>
+    //}
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        @*      <li>@Html.ActionLink("S’inscrire", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>*@
+        <li>@Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+<script id="errorlisttemplate" type="text/x-handlebars-template">
+    {{#each this}}
+    <li class="list-group-item"><a class="small" href="#"><span class="label label-info">{{count}}</span>&nbsp;{{message}}</a></li>
+    {{/each}}
+</script>

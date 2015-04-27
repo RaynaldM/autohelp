@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoHelp", "AutoHelp\AutoHelp.csproj", "{8C16F237-AFFB-4A56-AF88-9319081BFBCE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D298C174-B5B0-4EDE-9457-3729AF1FC5D4}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jolt", "Jolt\Jolt.csproj", "{DA98557A-159C-4D4B-9663-7E7D479318CE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C972F7AD-BFA9-49AE-A784-482B669B799C}"
+	ProjectSection(SolutionItems) = preProject
+		lib\Jolt.Testing.GeneratedTypes.dll = lib\Jolt.Testing.GeneratedTypes.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoHelp.domain", "AutoHelp.domain\AutoHelp.domain.csproj", "{DD9099C4-3E87-4EB5-972E-4E6DCCD7A1C3}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs23
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = AutoHelp.domain\\AutoHelp.domain.csproj
+		SccProjectName1 = AutoHelp.domain
+		SccLocalPath1 = AutoHelp.domain
+		SccProjectUniqueName2 = AutoHelp\\AutoHelp.csproj
+		SccProjectName2 = AutoHelp
+		SccLocalPath2 = AutoHelp
+		SccProjectUniqueName3 = Jolt\\Jolt.csproj
+		SccProjectName3 = Jolt
+		SccLocalPath3 = Jolt
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C16F237-AFFB-4A56-AF88-9319081BFBCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C16F237-AFFB-4A56-AF88-9319081BFBCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C16F237-AFFB-4A56-AF88-9319081BFBCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C16F237-AFFB-4A56-AF88-9319081BFBCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA98557A-159C-4D4B-9663-7E7D479318CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA98557A-159C-4D4B-9663-7E7D479318CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA98557A-159C-4D4B-9663-7E7D479318CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA98557A-159C-4D4B-9663-7E7D479318CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD9099C4-3E87-4EB5-972E-4E6DCCD7A1C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD9099C4-3E87-4EB5-972E-4E6DCCD7A1C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD9099C4-3E87-4EB5-972E-4E6DCCD7A1C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD9099C4-3E87-4EB5-972E-4E6DCCD7A1C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
