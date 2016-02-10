@@ -19,12 +19,12 @@ namespace AutoHelp.domain.Helpers
     {
         XmlDocCommentReader _reader;
 
-        public Models.Assembly Parse(string assemblyFile, Boolean bParseNamespace = true)
+        public Models.Assembly Parse(string assemblyFile, bool bParseNamespace = true)
         {
             try
             {
                 var namespaces = new List<Namespace>();
-                byte[] b = File.ReadAllBytes(assemblyFile);
+                var b = File.ReadAllBytes(assemblyFile);
                 var assembly = Assembly.Load(b);
                 //var assembly = Assembly.LoadFile(assemblyFile);
                 if (bParseNamespace)
@@ -39,7 +39,7 @@ namespace AutoHelp.domain.Helpers
                     {
                         nameSpace.Classes = nameSpace.Classes.OrderBy(c => c.Name).ToList();
                     }
-                    
+
                 }
 
                 var a = new Models.Assembly
@@ -60,7 +60,7 @@ namespace AutoHelp.domain.Helpers
 
         private void FindTypes(Assembly assembly, List<Namespace> namespaces)
         {
-            Type[] typesInAsm = assembly.GetLoadableTypes().Where(p => p.IsPublic || p.IsNestedPublic || p.IsVisible).ToArray();
+            var typesInAsm = assembly.GetLoadableTypes().Where(p => p.IsPublic || p.IsNestedPublic || p.IsVisible).ToArray();
             foreach (var type in typesInAsm)
             {
                 try
@@ -233,11 +233,11 @@ namespace AutoHelp.domain.Helpers
                     if (!info.IsSpecialName)
                     {
                         var method = new Method
-                     {
-                         Parent = parent,
-                         ParentClass = parent.Id,
-                         Name = info.Name,
-                     };
+                        {
+                            Parent = parent,
+                            ParentClass = parent.Id,
+                            Name = info.Name,
+                        };
 
                         // Contains overloads - ID is the hashcode
                         if (methodNames.Contains(info.Name))
@@ -379,26 +379,14 @@ namespace AutoHelp.domain.Helpers
         private IList<MemberSummary> GetMembers(Type type)
         {
             // For enumerations
-            var list = new List<MemberSummary>();
-
-            foreach (var info in type.GetMembers(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance))
-            {
-                if (info.Name != "value__")
+            var list = (from info in type.GetMembers(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance)
+                where info.Name != "value__"
+                let element = _reader.GetComments(info)
+                let comments = GetCommonTags(element)
+                select new MemberSummary
                 {
-                    var element = _reader.GetComments(info);
-                    var comments = GetCommonTags(element);
-
-                    var summary = new MemberSummary
-                    {
-                        Name = info.Name,
-                        Description = comments.Summary
-                    };
-
-                    list.Add(summary);
-                }
-            }
-
-            list = list.OrderBy(m => m.Name).ToList();
+                    Name = info.Name, Description = comments.Summary
+                }).OrderBy(m => m.Name).ToList();
             return list;
         }
 

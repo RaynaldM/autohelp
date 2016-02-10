@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Mvc;
-using AutoHelp.domain.Services;
 
 namespace AutoHelp.Controllers
 {
@@ -12,7 +11,7 @@ namespace AutoHelp.Controllers
         {
             //var docSvr = new DocServices();
             //MvcApplication.Assemblies = docSvr.SetAssemblies();
-            var data = MvcApplication.Assemblies.FirstOrDefault(p => p.Id == id);
+            var data = MvcApplication.Assemblies.SingleOrDefault(p => p.Id == id);
             return View(data);
         }
     }

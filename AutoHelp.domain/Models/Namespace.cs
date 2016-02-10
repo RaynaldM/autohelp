@@ -57,6 +57,9 @@ namespace AutoHelp.domain.Models
             return Name == b.Name;
         }
 
-        public int CountAlltype { get { return this.AllTypes.Count; } }
-      }
+        public int CountAlltype
+        {
+            get { return this.AllTypes.Count; }
+        }
+    }
 }

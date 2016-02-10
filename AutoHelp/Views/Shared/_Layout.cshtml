@@ -1,20 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    @*<meta name="robots" content="none" />
-        <meta name="author" content="RM">
-        <meta name="description" content="@ViewBag.ApplicationName - @ViewBag.Title" />*@
-    @*<link rel="apple-touch-icon" href="@Url.Content("~/Images/touch-icon-iphone.png")" />
-        <link rel="apple-touch-icon" sizes="72x72" href="@Url.Content("~/Images/touch-icon-ipad.png")" />
-        <link rel="apple-touch-icon" sizes="114x114" href="@Url.Content("~/Images/touch-icon-iphone-retina.png")" />
-        <link rel="apple-touch-icon" sizes="144x144" href="@Url.Content("~/Images/touch-icon-ipad-retina.png")" />*@
     <link rel="SHORTCUT ICON" type="image/x-icon" href="@Url.Content("~/favicon.ico")" />
     <title>@ViewBag.Title - AutoHelps</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
     @RenderSection("head", false)
 </head>
 <body>
@@ -34,12 +27,24 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Manage", "Index", "Manage")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @*<ul class="nav navbar-nav navbar-right">
+                        <li><a href="#search">Search</a></li>
+                    </ul>*@
+                @*  @Html.Partial("_LoginPartial")*@
             </nav>
+
         </div>
+
     </header>
     <div class="container-fluid body-content">
         @RenderBody()
+    </div>
+    <div id="search">
+        <button type="button" class="close">×</button>
+        <form>
+            <input type="search" value="" placeholder="type keyword(s) here" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/app")
@@ -50,6 +55,11 @@
             window.CurrentBasePage && window.CurrentBasePage.Ready();
             @RenderSection("PageReady", false);
         });
+    </script>
+    <script id="errorlisttemplate" type="text/x-handlebars-template">
+        {{#each this}}
+        <li class="list-group-item"><a class="small" href="#"><span class="label label-info">{{count}}</span>&nbsp;{{message}}</a></li>
+        {{/each}}
     </script>
     @*
         Google Analytics

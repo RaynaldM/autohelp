@@ -33,8 +33,3 @@ else
         <li>@Html.ActionLink("Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
     </ul>
 }
-<script id="errorlisttemplate" type="text/x-handlebars-template">
-    {{#each this}}
-    <li class="list-group-item"><a class="small" href="#"><span class="label label-info">{{count}}</span>&nbsp;{{message}}</a></li>
-    {{/each}}
-</script>

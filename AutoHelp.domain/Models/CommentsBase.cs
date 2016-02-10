@@ -28,11 +28,9 @@ namespace AutoHelp.domain.Models
         [DataMember]
         public string Id
         {
-            get
-            {
-                return UseHashCodeForId ? Fullname.GetHashCode().ToString(CultureInfo.InvariantCulture) : Name;
-            }
+            get { return UseHashCodeForId ? Fullname.GetHashCode().ToString(CultureInfo.InvariantCulture) : Name; }
         }
+
         [DataMember]
         public bool LoadError { get; set; }
 

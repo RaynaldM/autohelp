@@ -1,16 +1,15 @@
-﻿using System;
+﻿using AutoHelp.domain.Helpers;
+using AutoHelp.domain.Models;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using AutoHelp.domain.Helpers;
-using AutoHelp.domain.Models;
 using Exception = System.Exception;
 
 namespace AutoHelp.domain.Services
 {
     public class DocServices
     {
-       public string DataPath { get; private set; }
+       public string DataPath { get; set; }
 
         public DocServices(string path = null)
         {
@@ -24,7 +23,7 @@ namespace AutoHelp.domain.Services
             return fileList.Select(file => this.GetNamespace(file)).ToList();
         }
 
-        public Boolean DeletePhysicalFile(String filename)
+        public bool DeletePhysicalFile(string filename)
         {
             try
             {
@@ -45,7 +44,7 @@ namespace AutoHelp.domain.Services
             }
         }
 
-        private Assembly GetNamespace(String file, Boolean bParseNamespace = true)
+        private Assembly GetNamespace(string file, bool bParseNamespace = true)
         {
             var parser = new DocParser();
             var assembly = parser.Parse(file, bParseNamespace);
@@ -56,18 +55,11 @@ namespace AutoHelp.domain.Services
 
         private IEnumerable<string> GetFilesList()
         {
-            var filesList = new List<String>();
+            var filesList = new List<string>();
             if (this.DataPath != null && Directory.Exists(this.DataPath))
             {
                 var dllList = Directory.EnumerateFiles(this.DataPath, "*.dll");
-                foreach (var file in dllList)
-                {
-                    if (File.Exists(file.Replace(".dll", ".xml")))
-                    {
-                        //     filesList.Add(file.Substring(file.LastIndexOf(@"\", StringComparison.Ordinal) + 1));
-                        filesList.Add(file);
-                    }
-                }
+                filesList.AddRange(dllList.Where(file => File.Exists(file.Replace(".dll", ".xml"))));
             }
 
             return filesList;

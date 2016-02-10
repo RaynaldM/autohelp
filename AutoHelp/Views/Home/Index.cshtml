@@ -1,4 +1,5 @@
-﻿@{
+﻿@using aspnet_mvc_helpers
+@{
     ViewBag.Title = "Home Page";
 }
 @section head
@@ -19,7 +20,8 @@
         </div>
         {{/each}}
     </script>
-    <script src="~/Scripts/ts/index.js"></script>
+    @Html.TypeScript("~/typescripts/index.ts",true)
+    @*<script src="~/Scripts/ts/index.js"></script>*@
     <script>
         var CurrentBasePage = new IndexPage(
         {

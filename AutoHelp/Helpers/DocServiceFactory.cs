@@ -15,6 +15,11 @@ namespace AutoHelp.Helpers
             {
                 // if it's not define take the App_Data path
                 assemblyPath = HostingEnvironment.MapPath("~/App_Data");
+
+            }
+            else
+            {
+                assemblyPath = HostingEnvironment.MapPath(assemblyPath);
             }
             return new DocServices(assemblyPath);
         }

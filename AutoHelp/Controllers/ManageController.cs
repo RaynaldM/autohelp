@@ -1,12 +1,15 @@
-﻿using System;
+﻿using aspnet_mvc_helpers;
+using AutoHelp.Helpers;
+using Elmah;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
-using AutoHelp.Helpers;
 
 namespace AutoHelp.Controllers
 {
-    [ADAuthorize]
+    //[ADAuthorize]
     public class ManageController : Controller
     {
         // GET: Config
@@ -33,13 +36,18 @@ namespace AutoHelp.Controllers
                 var pathToSave = srv.DataPath;
                 foreach (var file in files)
                 {
-                    var fileName = pathToSave + file.FileName.Substring(file.FileName.LastIndexOf(@"\", StringComparison.Ordinal));
-                    file.SaveAs(fileName);
+                    string filename = file.FileName;
+                    int lastSlash = filename.LastIndexOf("\\");
+                    string trailingPath = filename.Substring(lastSlash + 1);
+                    string fullPath = pathToSave + "\\" + trailingPath;
+                 
+                    file.SaveAs(fullPath);
                 }
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ErrorSignal.FromCurrentContext().Raise(ex);
                 return Json(false, JsonRequestBehavior.AllowGet);
             }
         }
