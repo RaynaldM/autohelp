@@ -32,14 +32,5 @@ namespace AutoHelp.Controllers
             }
             return false;
         }
-
-        //[HttpDelete]
-        //public void Delete(Guid id)
-        //{
-        //    if (id == Guid.Empty)
-        //    {
-
-        //    }
-        //}
     }
 }

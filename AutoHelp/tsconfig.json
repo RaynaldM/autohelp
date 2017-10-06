@@ -1,0 +1,13 @@
+﻿{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": true,
+    "target": "es5"
+  },
+  "Include": [
+    "TypeScripts/**/*"
+  ],
+  "compileOnSave": true
+}

@@ -1,5 +1,4 @@
-/// <reference path="../typings/handlebars/handlebars.d.ts" />
-/// <reference path="../typings/toastr/toastr.d.ts" />
+/// <reference path="../../scripts/typings/extends.d.ts" />
 var Base;
 (function (Base) {
     var Page = (function () {
@@ -18,11 +17,9 @@ var Base;
             });
         }
         Page.prototype.Ready = function () {
-            //    $.views.helpers({ timeAgoformat: this.TimeAgoFormat });
-            //    $.views.helpers({ calendarformat: this.CalendarFormat });
         };
         return Page;
-    })();
+    }());
     Base.Page = Page;
 })(Base || (Base = {}));
 //# sourceMappingURL=Base.js.map

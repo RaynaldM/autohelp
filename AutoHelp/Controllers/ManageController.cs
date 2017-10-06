@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace AutoHelp.Controllers
 {
-    //[ADAuthorize]
+    //[ADAuthorize] // Uncomment this if you want to limit access to a specific group in AD (this group is setted in web.config)
     public class ManageController : Controller
     {
         // GET: Config
@@ -37,7 +37,7 @@ namespace AutoHelp.Controllers
                 foreach (var file in files)
                 {
                     string filename = file.FileName;
-                    int lastSlash = filename.LastIndexOf("\\");
+                    int lastSlash = filename.LastIndexOf("\\", StringComparison.Ordinal);
                     string trailingPath = filename.Substring(lastSlash + 1);
                     string fullPath = pathToSave + "\\" + trailingPath;
                  

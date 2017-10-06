@@ -8,6 +8,7 @@ class ManageIndexPage extends Base.Page {
         this.listTemplate = Handlebars.compile($("#list-template").html());
         this.modalTemplate = Handlebars.compile($("#modal-template").html());
 
+
         this.SetAssemblyMenu();
         $(":file").filestyle();
         var bar: JQuery = $('.bar');
