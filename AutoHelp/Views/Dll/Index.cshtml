@@ -20,7 +20,7 @@
         var CurrentBasePage = new DllIndexPage(
         {
             DllId: '@Model.Id',
-            urlGet: '@Url.RootUrl()/api/Assemblies'
+            urlGet: '@Url.Content("~/api/Assemblies")'
         });
     </script>
 }
