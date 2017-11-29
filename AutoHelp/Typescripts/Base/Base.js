@@ -1,11 +1,11 @@
 /// <reference path="../../scripts/typings/extends.d.ts" />
 var Base;
 (function (Base) {
-    var Page = (function () {
+    var Page = /** @class */ (function () {
         function Page(opts) {
             this.options = opts;
             toastr.options = {
-                "positionClass": "toast-bottom-full-width",
+                "positionClass": "toast-bottom-right",
                 "timeOut": 3000,
                 "onclick": null,
             };

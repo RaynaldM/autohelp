@@ -7,7 +7,7 @@ module Base {
         constructor(opts?: any) {
             this.options = opts;
             toastr.options = {
-                "positionClass": "toast-bottom-full-width",
+                "positionClass": "toast-bottom-right",
                 "timeOut": 3000,
                 "onclick": null,
             };

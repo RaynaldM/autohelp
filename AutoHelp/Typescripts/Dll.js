@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var DllIndexPage = (function (_super) {
+var DllIndexPage = /** @class */ (function (_super) {
     __extends(DllIndexPage, _super);
     function DllIndexPage() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -34,7 +34,7 @@ var DllIndexPage = (function (_super) {
             this.popTemplates[this.metaSubType[i] + "-Title"] = Handlebars.compile($("#" + this.metaSubType[i] + "-PopTitle-template").html());
             this.popTemplates[this.metaSubType[i] + "-Content"] = Handlebars.compile($("#" + this.metaSubType[i] + "-PopContent-template").html());
         }
-        BaseHelpers.AjaxService('GET', this.options.urlGet, { id: this.options.DllId }, function (data) {
+        Base.Helpers.AjaxService("GET", this.options.urlGet, { id: this.options.DllId }, function (data) {
             if (data) {
                 data.forEach(function (item) {
                     item.ClassCount = item.Classes.length;
@@ -176,7 +176,7 @@ var DllIndexPage = (function (_super) {
     DllIndexPage.prototype.setPopOver = function (element) {
         var self = this;
         element.popover({
-            trigger: 'hover',
+            trigger: "hover",
             html: true,
             // get the title and content
             // ReSharper disable SuspiciousThisUsage
@@ -187,8 +187,8 @@ var DllIndexPage = (function (_super) {
                 return self.getPopOverElement($(this), "Content");
             },
             // ReSharper restore SuspiciousThisUsage
-            container: 'body',
-            placement: 'left',
+            container: "body",
+            placement: "left",
             template: this.popTemplate
         });
     };
@@ -206,9 +206,9 @@ var DllIndexPage = (function (_super) {
     };
     DllIndexPage.prototype.getNameSpaceData = function (nameSpace) {
         var myArray = this.assemblyData.filter(function (item) {
-            return (item.Name == nameSpace);
+            return (item.Name === nameSpace);
         });
-        if (myArray && myArray.length == 1) {
+        if (myArray && myArray.length === 1) {
             return myArray[0];
         }
         return null;
@@ -217,7 +217,7 @@ var DllIndexPage = (function (_super) {
         var myArray = this.getNameSpaceData(nameSpace);
         if (myArray && myArray[metaType]) {
             var data = myArray[metaType].filter(function (item) {
-                return item.Id == typeName;
+                return item.Id === typeName;
             })[0];
             return data;
         }
@@ -227,9 +227,9 @@ var DllIndexPage = (function (_super) {
         var data = this.getTypeBaseClassData(nameSpace, typeName, metaType);
         if (data && data[metaSubType]) {
             var myArray = data[metaSubType].filter(function (item) {
-                return (item.Id == subName);
+                return (item.Id === subName);
             });
-            if (myArray && myArray.length == 1) {
+            if (myArray && myArray.length === 1) {
                 return myArray[0];
             }
         }

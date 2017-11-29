@@ -1,9 +1,9 @@
 module Base {
     "use strict";
     export class Helpers {
-        public AjaxService(type: string, url: string, data: any, successFunc?: any, errorFunc?: any, processData: boolean=true, async: boolean=true): JQueryXHR {
+        public static AjaxService(type: string, url: string, data: any, successFunc?: any, errorFunc?: any, processData: boolean=true, async: boolean=true): JQueryXHR {
 
-            if (type == "POST")
+            if (type === "POST")
                 data = JSON.stringify(data);
 
             return $.ajax({
@@ -22,9 +22,9 @@ module Base {
                         var errMessage = 'Uncaught Error.\n' + jqXhr.responseText + '[' + jqXhr.status + ']';
                         if (jqXhr.status === 0) {
                             errMessage = 'Not connect.\n Verify Network.';
-                        } else if (jqXhr.status == 404) {
+                        } else if (jqXhr.status === 404) {
                             errMessage = 'Requested page not found. [404]';
-                        } else if (jqXhr.status == 500) {
+                        } else if (jqXhr.status === 500) {
                             errMessage = 'Internal Server Error [500].';
                         } else if (errorThrown === 'parsererror') {
                             errMessage = 'Requested JSON parse failed.';
@@ -40,11 +40,11 @@ module Base {
             });
         }
 
-        public ForceReloadPage(): void {
+        public static ForceReloadPage(): void {
             window.location.href = window.location.href;
         }
 
-        public RedirectToUrl(urlto): void {
+        public static RedirectToUrl(urlto): void {
             window.location.href = urlto;
         }
 
@@ -52,4 +52,4 @@ module Base {
 }
 
 // ReSharper disable once InconsistentNaming
-declare var BaseHelpers: Base.Helpers;
+//declare var BaseHelpers: Base.Helpers;

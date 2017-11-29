@@ -11,27 +11,27 @@ class ManageIndexPage extends Base.Page {
 
         this.SetAssemblyMenu();
         $(":file").filestyle();
-        var bar: JQuery = $('.bar');
-        var percent: JQuery = $('.percent');
-        var status: JQuery = $('#status');
+        var bar: JQuery = $(".bar");
+        var percent: JQuery = $(".percent");
+        var status: JQuery = $("#status");
 
-        $('form').ajaxForm({
+        $("form").ajaxForm({
             beforeSend: () => {
                 toastr.info("Start uploading");
                 status.empty();
-                var percentVal: string = '0%';
+                var percentVal: string = "0%";
                 bar.width(percentVal);
                 percent.html(percentVal);
             },
             uploadProgress: (event, position, total, percentComplete) => {
-                var percentVal = percentComplete + '%';
+                var percentVal = percentComplete + "%";
                 bar.width(percentVal);
                 percent.html(percentVal);
                 //console.log(percentVal, position, total);
             },
             success: (result: boolean) => {
                 if (result) {
-                    var percentVal: string = '100%';
+                    var percentVal: string = "100%";
                     bar.width(percentVal);
                     percent.html(percentVal);
                     this.ResetAssemblyList();
@@ -47,21 +47,21 @@ class ManageIndexPage extends Base.Page {
     }
 
     private ResetAssemblyList(): void {
-        BaseHelpers.AjaxService('GET', this.options.urlReset,
-            null, (result) => {
+        Base.Helpers.AjaxService("GET", this.options.urlReset,
+            null, () => {
                 toastr.success("Assembly List Reseted");
                 this.SetAssemblyMenu();
             });
     }
 
     private SetAssemblyMenu(): void {
-        BaseHelpers.AjaxService('GET', this.options.urlFiles,
+        Base.Helpers.AjaxService("GET", this.options.urlFiles,
             null, (files) => {
                 if (files && files.length > 0) {
                     $("#dlist").html(this.listTemplate(files));
                     $(".dllChoice").click((event: JQueryEventObject) => {
-                        var id: string = $(event.currentTarget).attr('id');
-                        var assembly: Array<any> = files.filter((item: any) => { return (item.Id == id); });
+                        var id: string = $(event.currentTarget).attr("id");
+                        var assembly: Array<any> = files.filter((item: any) => { return (item.Id === id); });
                         this.SetAndOpenDeleteModal(assembly[0]);
                     });
                 } else {
@@ -74,8 +74,8 @@ class ManageIndexPage extends Base.Page {
     private SetAndOpenDeleteModal(assembly: any): void {
         $("#modal-content").html(this.modalTemplate(assembly));
         $("#deleteButton").click((event: JQueryEventObject) => {
-            var id: string = $(event.currentTarget).attr('data-id');
-            BaseHelpers.AjaxService('GET', this.options.urlFiles,
+            var id: string = $(event.currentTarget).attr("data-id");
+            Base.Helpers.AjaxService("GET", this.options.urlFiles,
                 { id: id, deleted: true },
                 (result) => {
                     if (result) {
@@ -85,8 +85,8 @@ class ManageIndexPage extends Base.Page {
                     } else {
                         toastr.error("Assembly deleted error", "Impossible to delete this assembly");
                     }
-                }).always(() => { $('#assModal').modal('hide'); });
+                }).always(() => { $("#assModal").modal("hide"); });
         });
-        $('#assModal').modal();
+        $("#assModal").modal();
     }
 }

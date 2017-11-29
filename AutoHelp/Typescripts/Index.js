@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var IndexPage = (function (_super) {
+var IndexPage = /** @class */ (function (_super) {
     __extends(IndexPage, _super);
     function IndexPage() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -19,7 +19,7 @@ var IndexPage = (function (_super) {
         _super.prototype.Ready.call(this);
         this.listTemplate = Handlebars.compile($("#list-template").html());
         var _self = this;
-        BaseHelpers.AjaxService('GET', this.options.urlFiles, null, function (files) {
+        Base.Helpers.AjaxService("GET", this.options.urlFiles, null, function (files) {
             if (files && files.length > 0) {
                 _self.setAssemblyMenu(files);
             }
@@ -32,8 +32,8 @@ var IndexPage = (function (_super) {
         var _this = this;
         $("#dlist").html(this.listTemplate(files));
         $(".dllChoice").click(function (event) {
-            var name = $(event.currentTarget).attr('id');
-            BaseHelpers.RedirectToUrl(_this.options.urlDll + '/' + name);
+            var name = $(event.currentTarget).attr("id");
+            Base.Helpers.RedirectToUrl(_this.options.urlDll + "/" + name);
         });
     };
     return IndexPage;

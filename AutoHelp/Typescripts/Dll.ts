@@ -26,7 +26,7 @@ class DllIndexPage extends Base.Page {
             this.popTemplates[this.metaSubType[i] + "-Content"] = Handlebars.compile($("#" + this.metaSubType[i] + "-PopContent-template").html());
         }
 
-        BaseHelpers.AjaxService('GET', this.options.urlGet,
+        Base.Helpers.AjaxService("GET", this.options.urlGet,
             { id: this.options.DllId },
             (data) => {
                 if (data) {
@@ -63,14 +63,14 @@ class DllIndexPage extends Base.Page {
             }
 
             // todo : use .some() & .filter
-            for (var h = 0; h < this.metaType.length; h++) {
+            for (let h = 0; h < this.metaType.length; h++) {
                 var tab = item[this.metaType[h]];
                 if (tab && tab.length > 0) {
                     tab.forEach((itemType) => {
                         if (itemType.LoadError) {
                             errorTab.push(itemType);
                         }
-                        for (var k = 0; k < this.metaSubType.length; k++) {
+                        for (let k = 0; k < this.metaSubType.length; k++) {
                             var subtab = itemType[this.metaSubType[k]];
                             if (subtab && subtab.length > 0) {
                                 subtab.forEach((subItemType) => {
@@ -179,7 +179,7 @@ class DllIndexPage extends Base.Page {
     private setPopOver(element: JQuery): void {
         var self = this;
         element.popover({
-            trigger: 'hover',
+            trigger: "hover",
             html: true,
             // get the title and content
 			// ReSharper disable SuspiciousThisUsage
@@ -190,8 +190,8 @@ class DllIndexPage extends Base.Page {
                 return self.getPopOverElement($(this), "Content");
             },
 			// ReSharper restore SuspiciousThisUsage
-            container: 'body',
-            placement: 'left',
+            container: "body",
+            placement: "left",
             template: this.popTemplate
         });
     }
@@ -212,9 +212,9 @@ class DllIndexPage extends Base.Page {
 
     private getNameSpaceData(nameSpace: string): any {
         var myArray: Array<any> = this.assemblyData.filter((item) => {
-            return (item.Name == nameSpace);
+            return (item.Name === nameSpace);
         });
-        if (myArray && myArray.length == 1) {
+        if (myArray && myArray.length === 1) {
             return myArray[0];
         }
         return null;
@@ -224,7 +224,7 @@ class DllIndexPage extends Base.Page {
         var myArray: any = this.getNameSpaceData(nameSpace);
         if (myArray && myArray[metaType]) {
             var data = myArray[metaType].filter((item) => {
-                return item.Id == typeName;
+                return item.Id === typeName;
             })[0];
             return data;
         }
@@ -235,9 +235,9 @@ class DllIndexPage extends Base.Page {
         var data = this.getTypeBaseClassData(nameSpace, typeName, metaType);
         if (data && data[metaSubType]) {
             var myArray: Array<any> = data[metaSubType].filter((item) => {
-                return (item.Id == subName);
+                return (item.Id === subName);
             });
-            if (myArray && myArray.length == 1) {
+            if (myArray && myArray.length === 1) {
                 return myArray[0];
             }
         }

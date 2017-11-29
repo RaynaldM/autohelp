@@ -8,7 +8,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var ManageIndexPage = (function (_super) {
+var ManageIndexPage = /** @class */ (function (_super) {
     __extends(ManageIndexPage, _super);
     function ManageIndexPage() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
@@ -22,26 +22,26 @@ var ManageIndexPage = (function (_super) {
         this.modalTemplate = Handlebars.compile($("#modal-template").html());
         this.SetAssemblyMenu();
         $(":file").filestyle();
-        var bar = $('.bar');
-        var percent = $('.percent');
-        var status = $('#status');
-        $('form').ajaxForm({
+        var bar = $(".bar");
+        var percent = $(".percent");
+        var status = $("#status");
+        $("form").ajaxForm({
             beforeSend: function () {
                 toastr.info("Start uploading");
                 status.empty();
-                var percentVal = '0%';
+                var percentVal = "0%";
                 bar.width(percentVal);
                 percent.html(percentVal);
             },
             uploadProgress: function (event, position, total, percentComplete) {
-                var percentVal = percentComplete + '%';
+                var percentVal = percentComplete + "%";
                 bar.width(percentVal);
                 percent.html(percentVal);
                 //console.log(percentVal, position, total);
             },
             success: function (result) {
                 if (result) {
-                    var percentVal = '100%';
+                    var percentVal = "100%";
                     bar.width(percentVal);
                     percent.html(percentVal);
                     _this.ResetAssemblyList();
@@ -58,19 +58,19 @@ var ManageIndexPage = (function (_super) {
     };
     ManageIndexPage.prototype.ResetAssemblyList = function () {
         var _this = this;
-        BaseHelpers.AjaxService('GET', this.options.urlReset, null, function (result) {
+        Base.Helpers.AjaxService("GET", this.options.urlReset, null, function () {
             toastr.success("Assembly List Reseted");
             _this.SetAssemblyMenu();
         });
     };
     ManageIndexPage.prototype.SetAssemblyMenu = function () {
         var _this = this;
-        BaseHelpers.AjaxService('GET', this.options.urlFiles, null, function (files) {
+        Base.Helpers.AjaxService("GET", this.options.urlFiles, null, function (files) {
             if (files && files.length > 0) {
                 $("#dlist").html(_this.listTemplate(files));
                 $(".dllChoice").click(function (event) {
-                    var id = $(event.currentTarget).attr('id');
-                    var assembly = files.filter(function (item) { return (item.Id == id); });
+                    var id = $(event.currentTarget).attr("id");
+                    var assembly = files.filter(function (item) { return (item.Id === id); });
                     _this.SetAndOpenDeleteModal(assembly[0]);
                 });
             }
@@ -83,8 +83,8 @@ var ManageIndexPage = (function (_super) {
         var _this = this;
         $("#modal-content").html(this.modalTemplate(assembly));
         $("#deleteButton").click(function (event) {
-            var id = $(event.currentTarget).attr('data-id');
-            BaseHelpers.AjaxService('GET', _this.options.urlFiles, { id: id, deleted: true }, function (result) {
+            var id = $(event.currentTarget).attr("data-id");
+            Base.Helpers.AjaxService("GET", _this.options.urlFiles, { id: id, deleted: true }, function (result) {
                 if (result) {
                     toastr.success("Assembly deleted", "Assembly " + assembly.Fullname + " successfuly deleted");
                     _this.SetAssemblyMenu();
@@ -92,9 +92,9 @@ var ManageIndexPage = (function (_super) {
                 else {
                     toastr.error("Assembly deleted error", "Impossible to delete this assembly");
                 }
-            }).always(function () { $('#assModal').modal('hide'); });
+            }).always(function () { $("#assModal").modal("hide"); });
         });
-        $('#assModal').modal();
+        $("#assModal").modal();
     };
     return ManageIndexPage;
 }(Base.Page));

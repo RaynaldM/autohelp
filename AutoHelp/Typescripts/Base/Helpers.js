@@ -1,13 +1,13 @@
 var Base;
 (function (Base) {
     "use strict";
-    var Helpers = (function () {
+    var Helpers = /** @class */ (function () {
         function Helpers() {
         }
-        Helpers.prototype.AjaxService = function (type, url, data, successFunc, errorFunc, processData, async) {
+        Helpers.AjaxService = function (type, url, data, successFunc, errorFunc, processData, async) {
             if (processData === void 0) { processData = true; }
             if (async === void 0) { async = true; }
-            if (type == "POST")
+            if (type === "POST")
                 data = JSON.stringify(data);
             return $.ajax({
                 type: type,
@@ -27,10 +27,10 @@ var Base;
                         if (jqXhr.status === 0) {
                             errMessage = 'Not connect.\n Verify Network.';
                         }
-                        else if (jqXhr.status == 404) {
+                        else if (jqXhr.status === 404) {
                             errMessage = 'Requested page not found. [404]';
                         }
-                        else if (jqXhr.status == 500) {
+                        else if (jqXhr.status === 500) {
                             errMessage = 'Internal Server Error [500].';
                         }
                         else if (errorThrown === 'parsererror') {
@@ -48,14 +48,16 @@ var Base;
                 async: async
             });
         };
-        Helpers.prototype.ForceReloadPage = function () {
+        Helpers.ForceReloadPage = function () {
             window.location.href = window.location.href;
         };
-        Helpers.prototype.RedirectToUrl = function (urlto) {
+        Helpers.RedirectToUrl = function (urlto) {
             window.location.href = urlto;
         };
         return Helpers;
     }());
     Base.Helpers = Helpers;
 })(Base || (Base = {}));
+// ReSharper disable once InconsistentNaming
+//declare var BaseHelpers: Base.Helpers;
 //# sourceMappingURL=Helpers.js.map

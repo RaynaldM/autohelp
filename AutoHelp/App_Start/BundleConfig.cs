@@ -14,18 +14,11 @@ namespace AutoHelp
             bundles.Add(new ScriptBundle("~/bundles/jquery",
                         jqueryCdnPath).Include(
                         "~/Scripts/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
-
+      
             bundles.Add(new ScriptBundle("~/bundles/manage")
                         .Include("~/Scripts/jquery.form.js")
                         .Include("~/Scripts/bootstrap-filestyle.js")
                         .Include("~/TypeScripts/ManageIndex.js"));
-
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr")
-            //          .Include("~/Scripts/modernizr-*")
-            //          .Include("~/Scripts/fixIe10mobil.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                       "~/Scripts/bootstrap.js",
