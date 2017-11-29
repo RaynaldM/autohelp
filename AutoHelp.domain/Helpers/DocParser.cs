@@ -8,8 +8,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Xml.Linq;
+using AutoHelp.domain.Helpers.XMLHelper;
 using AutoHelp.domain.Models;
-using Jolt;
 using Assembly = System.Reflection.Assembly;
 using Exception = System.Exception;
 
@@ -310,7 +310,7 @@ namespace AutoHelp.domain.Helpers
                     TypeFullName = GetFullTypeName(info.ParameterType)
                 };
 
-                var current = paramElements.FirstOrDefault(e => e.Attribute("name") != null && e.Attribute("name").Value == parameter.Name);
+                var current = paramElements.FirstOrDefault(e => e.Attribute("name") != null && e.Attribute("name")?.Value == parameter.Name);
                 if (current != null)
                 {
                     // TODO: get attributes
@@ -476,6 +476,7 @@ namespace AutoHelp.domain.Helpers
                     csharpProvider.GenerateCodeFromStatement(variableDeclaration, writer, new CodeGeneratorOptions());
                 }
 
+                // ReSharper disable once AssignNullToNotNullAttribute
                 stringBuilder.Replace(" dummy;", null);
                 result = stringBuilder.ToString();
             }

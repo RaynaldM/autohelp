@@ -1,11 +1,10 @@
-﻿using aspnet_mvc_helpers;
-using AutoHelp.Helpers;
-using Elmah;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Web;
 using System.Web.Mvc;
+using aspnet_mvc_helpers;
+using AutoHelp.Helpers;
+using Elmah;
 
 namespace AutoHelp.Controllers
 {

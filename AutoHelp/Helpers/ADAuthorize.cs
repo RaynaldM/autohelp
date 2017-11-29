@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Mvc;
@@ -9,11 +10,10 @@ namespace AutoHelp.Helpers
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            var id = httpContext.User.Identity as System.Security.Principal.WindowsIdentity;
-            if (id != null && id.Groups != null)
+            if (httpContext.User.Identity is WindowsIdentity id && id.Groups != null)
             {
                 var authRole = WebConfigurationManager.AppSettings.Get("AuthorizedGroup");
-                var readableGroups = id.Groups.Select(g => g.Translate(typeof(System.Security.Principal.NTAccount))).ToArray();
+                var readableGroups = id.Groups.Select(g => g.Translate(typeof(NTAccount))).ToArray();
                 var ret = readableGroups.Select(@group => @group.Value).Any(name => name == authRole);
                 return ret;
             }

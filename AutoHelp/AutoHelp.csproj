@@ -38,6 +38,7 @@
     <RestorePackages>true</RestorePackages>
     <UseGlobalApplicationHostFile />
     <Use64BitIISExpress />
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -230,8 +231,6 @@
     <Content Include="Images\logo_autohelp-190x111.png" />
     <Content Include="Images\logo_autohelp-290x170.png" />
     <Content Include="Images\logo_autohelp-60x35.png" />
-    <Content Include="party-16x16.png" />
-    <Content Include="party-32x32.png" />
     <Content Include="Scripts\bootstrap-filestyle.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

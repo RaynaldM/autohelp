@@ -35,16 +35,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\AssemblyHelpers.cs" />
     <Compile Include="Helpers\DocParser.cs" />
     <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\XMLHelper\Convert.cs" />
+    <Compile Include="Helpers\XMLHelper\Interfaces\IXmlDocCommentReader.cs" />
+    <Compile Include="Helpers\XMLHelper\Interfaces\IXmlDocCommentReadPolicy.cs" />
+    <Compile Include="Helpers\XMLHelper\XmlDocCommentDirectoryElement.cs" />
+    <Compile Include="Helpers\XMLHelper\XmlDocCommentDirectoryElementCollection.cs" />
+    <Compile Include="Helpers\XMLHelper\XmlDocCommentReader.cs" />
+    <Compile Include="Helpers\XMLHelper\XmlDocCommentReaderSettings.cs" />
+    <Compile Include="Helpers\XMLHelper\XmlDocCommentReadPolicy.cs" />
     <Compile Include="Models\CodeCommentBase.cs" />
     <Compile Include="Models\CommentsBase.cs" />
     <Compile Include="Models\Constructor.cs" />
@@ -59,13 +67,11 @@
     <Compile Include="Services\DocServices.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Jolt\Jolt.csproj">
-      <Project>{da98557a-159c-4d4b-9663-7e7d479318ce}</Project>
-      <Name>Jolt</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Helpers\XMLHelper\read.me" />
     <None Include="Models\models.cd" />
+    <EmbeddedResource Include="Xml\DocComments.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

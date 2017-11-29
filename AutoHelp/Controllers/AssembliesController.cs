@@ -23,27 +23,9 @@ namespace AutoHelp.Controllers
         public Namespace[] Get(Guid id)
         {
             var ass = MvcApplication.Assemblies.FirstOrDefault(p => p.Id == id);
-            if (ass != null && ass.Namespaces != null && ass.Namespaces.Any())
-            {
-                return ass.Namespaces.Where(p => p.Name != null).ToArray();
-            }
-            return null;
+            return ass?.Namespaces != null && ass.Namespaces.Any()
+                ? ass.Namespaces.Where(p => p.Name != null).ToArray()
+                : null;
         }
-
-        //// POST api/<controller>
-        //public void Post([FromBody]string value)
-        //{
-        //}
-
-        //// PUT api/<controller>/5
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        // DELETE api/<controller>/5
-        //public bool Delete(Guid id)
-        //{
-        //    return true;
-        //}
     }
 }

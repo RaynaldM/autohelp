@@ -5,6 +5,7 @@ using System.Linq;
 
 namespace AutoHelp.domain.Models
 {
+    // ReSharper disable once NotResolvedInText
     [DebuggerDisplay("{Assembly}")]
     public class Assembly
     {
@@ -50,16 +51,9 @@ namespace AutoHelp.domain.Models
         // ReSharper disable once CSharpWarnings::CS0659
         public override bool Equals(object obj)
         {
-            var b = obj as Namespace;
-            if (b == null)
-                return false;
-
-            return Name == b.Name;
+            return obj is Namespace b && Name == b.Name;
         }
 
-        public int CountAlltype
-        {
-            get { return this.AllTypes.Count; }
-        }
+        public int CountAlltype => this.AllTypes.Count;
     }
 }

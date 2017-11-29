@@ -13,10 +13,7 @@ namespace AutoHelp.domain.Models
         [DataMember]
         public IList<Parameter> Parameters { get; set; }
         [DataMember]
-        public string formatedParams
-        {
-            get { return this.ParameterTypes(); }
-        }
+        public string formatedParams => this.ParameterTypes();
 
         /// <summary>
         /// Returns the parameters types, comma seperated.

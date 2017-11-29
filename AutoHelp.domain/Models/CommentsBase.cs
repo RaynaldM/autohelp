@@ -26,10 +26,7 @@ namespace AutoHelp.domain.Models
         [IgnoreDataMember]
         public bool UseHashCodeForId { get; set; }
         [DataMember]
-        public string Id
-        {
-            get { return UseHashCodeForId ? Fullname.GetHashCode().ToString(CultureInfo.InvariantCulture) : Name; }
-        }
+        public string Id => UseHashCodeForId ? Fullname.GetHashCode().ToString(CultureInfo.InvariantCulture) : Name;
 
         [DataMember]
         public bool LoadError { get; set; }
