@@ -1,0 +1,27 @@
+﻿<h3 title="{{Fullname}}">
+    {{Name}}
+    <small>
+        {{#if IsPublic}}
+        <span class="pull-right badge badge-primary">Public</span>
+        {{else}}
+        <span class="pull-right badge">Private</span>
+        {{/if}}
+        {{#if IsAbstract}}
+        <span class="pull-right badge badge-info">Abstract</span>
+        {{/if}}
+        {{#if IsSealed}}
+        <span class="pull-right badge badge-warning">Sealed</span>
+        {{/if}}
+    </small>
+</h3>
+<ol class="breadcrumb" >
+    <li class="breadcrumb-item">Inherited</li>
+    {{#each Parents}}
+    <li class="breadcrumb-item">
+        <a href="#" title="{{Fullname}}" data-id="{{Fullname}}">{{Name}}</a>
+    </li>
+    {{/each}}
+</ol>
+<p>{{Summary}}</p>
+<p class="text-muted hidden">{{{Remarks}}}</p>
+<p class="text-muted hidden">{{Example }}</p>

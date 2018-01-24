@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AutoHelp.domain.Models.CodeCommentBase">
+    <Position X="9.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAQAAACAAAAAAAAIAAAAAAAgA=</HashCode>
+      <FileName>Models\CodeCommentBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.CommentsBase">
+    <Position X="11.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKCAAAAAIAAAAAAAAIAAAQABAAAAIAAAAgAAAAAAAA=</HashCode>
+      <FileName>Models\CommentsBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.Constructor">
+    <Position X="8.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Constructor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.Event" Collapsed="true">
+    <Position X="19.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Event.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.Exception" Collapsed="true">
+    <Position X="21.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Exception.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.Method">
+    <Position X="10.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Models\Method.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.Assembly" Collapsed="true">
+    <Position X="17.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAEAAAAAAIAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Namespace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.Namespace" Collapsed="true">
+    <Position X="19.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEABAAAEAAAAEgAAAAiwAAAAAAAAGAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Namespace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.Parameter" Collapsed="true">
+    <Position X="21.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAgAAAEAAAAAAQQAAAAAAAgASAAAAAAAAA=</HashCode>
+      <FileName>Models\Parameter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.Property">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAQAAQAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Property.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.TypeBase">
+    <Position X="15.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAEAAgBAAAAAAAAAAAAAAACAAIAACAIAEAACKAEA=</HashCode>
+      <FileName>Models\TypeBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.TypeSummary" Collapsed="true">
+    <Position X="17.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TypeBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AutoHelp.domain.Models.MemberSummary" Collapsed="true">
+    <Position X="17.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TypeBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

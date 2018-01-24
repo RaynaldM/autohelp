@@ -1,0 +1,6 @@
+﻿@import "../variables";
+
+.card:hover, .card:focus, .card:active {
+    background-color: $warning;
+    cursor: pointer;
+}

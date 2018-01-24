@@ -1,0 +1,17 @@
+{
+  "directory": "wwwroot/lib",
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v4.0.0-beta",
+    "jquery": "3.2.1",
+    "jquery-mousewheel": "3.1.13",
+    "handlebars": "v4.0.11",
+    "toastr": "2.1.3",
+    "popper.js": "v1.13.0-next"
+  },
+  "resolutions": {
+    "popper.js": "v1.13.0-next",
+    "jquery": ">=1.9.1"
+  }
+}

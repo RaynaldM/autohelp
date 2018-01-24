@@ -1,0 +1,12 @@
+﻿// Main bootstap
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+@import "bootswatch.materia/variables";
+
+@import "../wwwroot/lib/bootstrap/scss/bootstrap";
+
+@import "bootswatch.materia/bootswatch";
+
+@import "addons/toastr";
+
+@import "site";

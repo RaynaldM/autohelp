@@ -1,0 +1,60 @@
+﻿// Configure bundling and minification for the project.
+// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+  {
+    "outputFileName": "wwwroot/css/app.css",
+    "inputFiles": [
+      "Styles/App.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/css/home.css",
+    "inputFiles": [
+      "Styles/Pages/home.css"
+    ]
+  },
+
+  {
+    "outputFileName": "wwwroot/css/assemblydetail.css",
+    "inputFiles": [
+      "Styles/Pages/assemblydetail.css"
+    ]
+  },
+  // Bundles
+  {
+    "outputFileName": "wwwroot/js/bootstrap-bundle.js",
+    "inputFiles": [
+      "wwwroot/lib/popper.js/dist/umd/popper-utils.js",
+      "wwwroot/lib/popper.js/dist/umd/popper.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/app.js",
+    "inputFiles": [
+      "wwwroot/lib/toastr/toastr.js",
+      "wwwroot/lib/handlebars/handlebars.js",
+      "wwwroot/lib/jquery-mousewheel/jquery.mousewheel.min.js",
+      "Scripts/Extends.js",
+      "TypeScripts/Base/*.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/home.js",
+    "inputFiles": [
+      "TypeScripts/home.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/assemblydetails.js",
+    "inputFiles": [
+      "TypeScripts/assemblydetails.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/manage.js",
+    "inputFiles": [
+      "TypeScripts/ManageIndex.js"
+    ]
+  }
+]

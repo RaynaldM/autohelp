@@ -1,0 +1,117 @@
+﻿<script id="poptemplate" type="text/html">
+    <div class="popover popoverlarge" role="tooltip"><div class="arrow"></div><h4 class="popover-header"></h4><div class="popover-body"></div></div>
+</script>
+<script id="Methods-PopTitle-template" type="text/x-handlebars-template">
+    {{Fullname}}
+</script>
+<script id="Methods-PopContent-template" type="text/x-handlebars-template">
+    <p>{{Summary}}</p>
+    <hr />
+    <h6 class="text-warning">Parameters</h6>
+    <dl>
+        {{#each Parameters}}
+        <dt>
+            {{Name}} ({{TypeFullName}})
+            @*{{#if IsOut}}
+                <span class="label label-warning">Out</span>
+                {{/if}*@
+            @*{{#if IsRet}}
+                <span class="label label-info">Ref</span>
+                {{/if}*@
+        </dt>
+        <dd class="small text-muted">{{Description}}</dd>
+        {{/each}}
+    </dl>
+    <hr />
+    <h6 class="text-primary">Returns</h6>
+    <dl>
+        <dt>{{ReturnTypeFullName}}</dt>
+        <dd class="small text-muted">{{Returns}}</dd>
+    </dl>
+    {{#if Remarks}}
+    <hr />
+    <h6>
+        Remarks
+    </h6>
+    <p>{{Remarks}}</p>
+    {{/if}}
+    {{#if Example}}
+    <hr />
+    <h6>
+        Example
+    </h6>
+    <p>{{Example}}</p>
+    {{/if}}
+    {{#if Exceptions}}
+    <hr />
+    <h6>
+        Exceptions
+    </h6>
+    <p>{{Exceptions}}</p>
+    {{/if}}
+</script>
+
+<script id="Constructors-PopTitle-template" type="text/x-handlebars-template">
+    {{Fullname}}
+</script>
+<script id="Constructors-PopContent-template" type="text/x-handlebars-template">
+    <p>{{Summary}}</p>
+    {{#if Parameters}}
+    <hr />
+    <h6 class="text-warning">Parameters</h6>
+    <dl>
+        {{#each Parameters}}
+        <dt>
+            {{Name}} ({{TypeFullName}})
+        </dt>
+        <dd class="small text-muted">{{Description}}</dd>
+        {{/each}}
+    </dl>
+    {{/if}}
+    @*<h5 class="text-warning">Attributes</h5>
+        <p>{{Attributes}}</p>*@
+    {{#if Remarks}}
+    <hr />
+    <h6>
+        Remarks
+    </h6>
+    <p>{{Remarks}}</p>
+    {{/if}}
+    {{#if Example}}
+    <hr />
+    <h6>
+        Example
+    </h6>
+    <p>{{Example}}</p>
+    {{/if}}
+    {{#if Exceptions}}
+    <hr />
+    <h6>
+        Exceptions
+    </h6>
+    <p>{{Exceptions}}</p>
+    {{/if}}
+</script>
+
+<script id="Properties-PopTitle-template" type="text/x-handlebars-template">
+    {{Fullname}}
+</script>
+<script id="Properties-PopContent-template" type="text/x-handlebars-template">
+    <p>{{Summary}}</p>
+    @*<h5 class="text-warning">Attributes</h5>
+        <p>{{Attributes}}</p>*@
+    {{#if Remarks}}
+    <hr />
+    <h6>
+        Remarks
+    </h6>
+    <p>{{Remarks}}</p>
+    {{/if}}
+    {{#if Example}}
+    <hr />
+    <h6>
+        Example
+    </h6>
+    <p>{{Example}}</p>
+    {{/if}}
+</script>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- *
+     * This schema contains an unofficial representation of the Visual Studio XML Doc Comment file.
+     * The schema is a contains a subset of the elements that are allowed in a doc comment file,
+     * and is restricted to representing the structure of the <doc>, <assembly>, <members> and <member>
+     * elements.  The child elements of <member> are not represented in this schema.
+     *
+  -->
+
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="unqualified">
+
+  <xs:simpleType name="NameType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:complexType name="AssemblyType">
+    <xs:sequence>
+      <xs:element name="name" type="NameType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="MemberType" mixed="true">
+    <xs:sequence>
+      <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="NameType"/>
+  </xs:complexType>
+
+  <xs:complexType name="MemberCollectionType">
+    <xs:sequence>
+      <xs:element name="member" type="MemberType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DocumentType">
+    <xs:sequence>
+      <xs:element name="assembly" type="AssemblyType"/>
+      <xs:element name="members" type="MemberCollectionType"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="doc" type="DocumentType"/>
+</xs:schema>

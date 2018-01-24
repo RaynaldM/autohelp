@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Styles/App.css",
+    "inputFile": "Styles/App.scss"
+  },
+  {
+    "outputFile": "Styles/Pages/Home.css",
+    "inputFile": "Styles/Pages/Home.scss"
+  },
+  {
+    "outputFile": "Styles/Pages/AssemblyDetail.css",
+    "inputFile": "Styles/Pages/AssemblyDetail.scss"
+  }
+]

@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pocket.api</name>
+    </assembly>
+    <members>
+        <member name="F:Pocket.api.Action.Add">
+            <summary>
+             add - Add a new item to the user's list (not supported)
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.Archive">
+            <summary>
+            archive - Move an item to the user's archive
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.Readd">
+            <summary>
+            readd - Re-add (unarchive) an item to the user's list
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.Favorite">
+            <summary>
+            favorite - Mark an item as a favorite
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.Unfavorite">
+            <summary>
+            unfavorite - Remove an item from the user's favorites
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.Delete">
+            <summary>
+            delete - Permanently remove an item from the user's account
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.TagsAdd">
+            <summary>
+            tags_add - Add one or more tags to an item
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.TagsRemove">
+            <summary>
+            tags_remove - Remove one or more tags from an item
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.TagsReplace">
+            <summary>
+            tags_replace - Replace all of the tags for an item with one or more provided tags
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.TagsClear">
+            <summary>
+            tags_clear - Remove all tags from an item
+            </summary>
+        </member>
+        <member name="F:Pocket.api.Action.TagRename">
+            <summary>
+            tag_rename - Rename a tag; this affects all items with this tag (not supported)
+            </summary>
+        </member>
+        <member name="T:Pocket.api.PocketClient">
+            <summary>
+            Pocket Rest Client
+            </summary>
+        </member>
+        <member name="F:Pocket.api.PocketClient.AccessTokenService">
+            <summary>
+            Defines URI of service which issues access token.
+            </summary>
+        </member>
+        <member name="F:Pocket.api.PocketClient.AuthorizeIHMService">
+            <summary> 
+            Defines URI of service which redirect to login/autorized
+            </summary>
+        </member>
+        <member name="F:Pocket.api.PocketClient.AuthorizeService">
+            <summary> 
+            Defines URI of service which redirect to login/autorized
+            </summary>
+        </member>
+        <member name="F:Pocket.api.PocketClient.GetService">
+            <summary>
+            Retrieving a User's Pocket Data
+            To retrieve item(s) from a user’s Pocket list, you’ll make a request to the /v3/get endpoint.
+            </summary>
+        </member>
+        <member name="F:Pocket.api.PocketClient.AddService">
+            <summary>
+            Adding a Single Item
+            To save an item to a user’s Pocket list, you’ll make a single request to the /v3/add endpoint
+            </summary>
+        </member>
+        <member name="F:Pocket.api.PocketClient.ModifyService">
+            <summary>
+            Modifying a User's Pocket Data
+            The /v3/send endpoint allows your application to send a single event or 
+            multiple events and actions that will modify the user's data in one call.
+            </summary>
+        </member>
+        <member name="F:Pocket.api.PocketClient._pocketRestClient">
+            <summary>
+            Persistant Rest client for GetPocket
+            </summary>
+        </member>
+        <member name="P:Pocket.api.PocketClient.PocketRestClient">
+            <summary>
+            Accessor to a singleton request (restsharp) object
+            </summary>
+        </member>
+        <member name="P:Pocket.api.PocketClient.AccessToken">
+            <summary>
+            Access token returned by provider. Can be used for further calls of provider API.
+            </summary>
+        </member>
+        <member name="P:Pocket.api.PocketClient.ConsumerKey">
+            <summary>
+            Consumer Key (ID of your application).
+            </summary>
+        </member>
+        <member name="P:Pocket.api.PocketClient.RedirectUri">
+            <summary>
+            Redirect URI (URI user will be redirected to
+            after authentication using third-party service).
+            </summary>
+        </member>
+        <member name="M:Pocket.api.PocketClient.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the GetPocket class.
+            </summary>
+        </member>
+        <member name="M:Pocket.api.PocketClient.PocketAuthorizePageUrl">
+            <summary>
+            Returns URI of service which should be called in order to start authentication process.
+            This URI should be used for rendering login link.
+            </summary>
+            <remarks>
+            Any additional information that will be posted back by service.
+            </remarks>
+        </member>
+        <member name="M:Pocket.api.PocketClient.GetToken">
+            <summary>
+            Get an app token
+            </summary>
+            <returns>the token</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.GetAccessToken">
+            <summary>
+            Query for access token and parses response.
+            </summary>
+        </member>
+        <member name="M:Pocket.api.PocketClient.PocketAccessToken">
+            <summary>
+            Retrieve the Token from Pocket API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.Retrieve(Pocket.api.RetrieveRequest)">
+            <summary>
+            Pocket's /v3/get endpoint is a single call that is incredibly versatile. A few examples of the types of requests you can make:
+                 Retrieve a user’s list of unread items
+                 Sync data that has changed since the last time your app checked
+                 Retrieve paged results sorted by the most recent saves
+                 Retrieve just videos that the user has saved
+                 Search for a given keyword in item’s title and url
+                 Retrieve all items for a given domain
+                 and more
+            </summary>
+            <param name="request">A completed Retrieve Request Object (except the consumer Key)</param>
+            <returns>The JSON response will include a list object. This object will contain all of the items that matched your retrieval request.</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.Retrieve(System.String,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Pocket's /v3/get endpoint is a single call that is incredibly versatile. A few examples of the types of requests you can make:
+                 Retrieve a user’s list of unread items
+                 Sync data that has changed since the last time your app checked
+                 Retrieve paged results sorted by the most recent saves
+                 Retrieve just videos that the user has saved
+                 Search for a given keyword in item’s title and url
+                 Retrieve all items for a given domain
+                 and more
+            </summary>
+            <param name="userToken">Authorize Token of the user</param>
+            <param name="count">Only return count number of items</param>
+            <param name="detailType">
+                 simple = only return the titles and urls of each item
+                 complete = return all data about each item, including tags, images, authors, videos and more
+            </param>
+            <param name="tag">
+              tag_name = only return items tagged with tag_name
+              _untagged_ = only return untagged items
+            </param>
+            <param name="sort">
+               newest = return items in order of newest to oldest
+               oldest = return items in order of oldest to newest
+               title = return items in order of title alphabetically
+               site = return items in order of url alphabetically
+            </param>
+            <param name="state">
+              unread = only return unread items (default)
+              archive = only return archived items
+              all = return both unread and archived items
+            </param>
+            <returns>The JSON response will include a list object. This object will contain all of the items that matched your retrieval request.</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.Add(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Allowing users to add articles, videos, images and URLs to Pocket is most likely the first type of integration that you’ll want to build into your application.
+            </summary>
+            <param name="userToken">Authorize Token of the user</param>
+            <param name="url">The URL of the item you want to save</param>
+            <param name="title">This can be included for cases where an item does not have a title, which is typical for image or PDF URLs. 
+            If Pocket detects a title from the content of the page, this parameter will be ignored.</param>
+            <param name="tags">A comma-separated list of tags to apply to the item</param>
+            <param name="tweetId">If you are adding Pocket support to a Twitter client, please send along a reference to the tweet status id. 
+            This allows Pocket to show the original tweet alongside the article.</param>
+            <returns>The response contains all of the meta information we have resolved about the saved item</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.Add(Pocket.api.ArticleRequest)">
+            <summary>
+            Allowing users to add articles, videos, images and URLs to Pocket is most likely the first type of integration that you’ll want to build into your application.
+            </summary>
+            <param name="newArticle">An completed Add Request</param>
+            <returns>The response contains all of the meta information we have resolved about the saved item</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.Modify(System.String,Pocket.api.Action,System.Int64,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Allows you to make a change to Pocket data.
+            </summary>
+            <param name="userToken">Authorize Token of the user</param>
+            <param name="action">Action to do</param>
+            <param name="id">The id of the item to perform the action on.</param>
+            <param name="time">The time the action occurred</param>
+            <param name="tags">A comma-delimited list of one or more tags to add.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.Modify(Pocket.api.ModifyRequest)">
+            <summary>
+            Allows you to make a change or batch several changes to a user’s list or Pocket data.
+            </summary>
+            <param name="request">A completed request</param>
+            <returns>The response you receive back contains a status variable and an action_results array that indicates which action had an issue if the status is 0 (indicating failure)</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.PocketRequest``1(System.String,RestSharp.Method,System.Object,System.Boolean)">
+            <summary>
+            Query GetPocket and parse JSON response in define object
+            </summary>
+            <typeparam name="T">Object type Expected</typeparam>
+            <param name="restService">Service uri to query</param>
+            <param name="method">Get or Post</param>
+            <param name="objectForRequest">Other parameters embedded in an object</param>
+            <param name="getAuth">Try to get token</param>
+            <returns>The JSON response parse in T type</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.PocketRequestAsync``1(System.String,RestSharp.Method,System.Object,System.Boolean)">
+            <summary>
+            Query in asynchrone mode GetPocket and parse JSON response in define object
+            </summary>
+            <typeparam name="T">Object type Expected</typeparam>
+            <param name="restService">Service uri to query</param>
+            <param name="method">Get or Post</param>
+            <param name="objectForRequest">Other parameters embedded in an object</param>
+            <param name="getAuth">Try to get token</param>
+            <returns>The JSON response parse in T type</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.RetrieveAsync(Pocket.api.RetrieveRequest)">
+            <summary>
+            Pocket's /v3/get endpoint is a single call that is incredibly versatile. A few examples of the types of requests you can make:
+                 Retrieve a user’s list of unread items
+                 Sync data that has changed since the last time your app checked
+                 Retrieve paged results sorted by the most recent saves
+                 Retrieve just videos that the user has saved
+                 Search for a given keyword in item’s title and url
+                 Retrieve all items for a given domain
+                 and more
+            </summary>
+            <param name="request">A completed Retrieve Request Object (except the consumer Key)</param>
+            <returns>The JSON response will include a list object. This object will contain all of the items that matched your retrieval request.</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.RetrieveAsync(System.String,System.Int32,System.String,System.String,System.String,System.String)">
+            <summary>
+            Pocket's /v3/get endpoint is a single call that is incredibly versatile. A few examples of the types of requests you can make:
+                 Retrieve a user’s list of unread items
+                 Sync data that has changed since the last time your app checked
+                 Retrieve paged results sorted by the most recent saves
+                 Retrieve just videos that the user has saved
+                 Search for a given keyword in item’s title and url
+                 Retrieve all items for a given domain
+                 and more
+            </summary>
+            <param name="userToken">Authorize Token of the user</param>
+            <param name="count">Only return count number of items</param>
+            <param name="detailType">
+                 simple = only return the titles and urls of each item
+                 complete = return all data about each item, including tags, images, authors, videos and more
+            </param>
+            <param name="tag">
+              tag_name = only return items tagged with tag_name
+              _untagged_ = only return untagged items
+            </param>
+            <param name="sort">
+               newest = return items in order of newest to oldest
+               oldest = return items in order of oldest to newest
+               title = return items in order of title alphabetically
+               site = return items in order of url alphabetically
+            </param>
+            <param name="state">
+              unread = only return unread items (default)
+              archive = only return archived items
+              all = return both unread and archived items
+            </param>
+            <returns>The JSON response will include a list object. This object will contain all of the items that matched your retrieval request.</returns>
+        </member>
+        <member name="M:Pocket.api.PocketClient.ModifyAsync(Pocket.api.ModifyRequest)">
+            <summary>
+            Allows you to make a change or batch several changes to a user’s list or Pocket data.
+            </summary>
+            <param name="request">A completed request</param>
+            <returns>The response you receive back contains a status variable and an action_results array that indicates which action had an issue if the status is 0 (indicating failure)</returns>
+        </member>
+    </members>
+</doc>

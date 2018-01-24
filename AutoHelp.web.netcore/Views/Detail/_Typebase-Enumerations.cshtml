@@ -1,0 +1,9 @@
+﻿<script id="typebaseEnumerations-template" type="text/x-handlebars-template">
+    <div id="headdetail" class="col-md-12" style="height:24%;min-height: 24%;max-height: 24%">
+        @await Html.PartialAsync("_TypeBaseHead")
+    </div>
+    <div class="col-md-12 height80">
+        <h4>Members</h4>
+        @await Html.PartialAsync("_Member")
+    </div>
+</script>

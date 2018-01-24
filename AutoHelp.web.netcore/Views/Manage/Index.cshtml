@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Assemblies Management";
+}
+@section head{
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/home.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/home.min.css" asp-append-version="true" />
+    </environment>
+}
+@section scripts{
+    <script id="list-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div id="{{Id}}" class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{Name}}</h4>
+                <p class="card-text">{{FullName}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+    <script id="modal-template" type="text/x-handlebars-template">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title">Delete an Assembly : {{Name}}</h4>
+        </div>
+        <div class="modal-body">
+            <p>{{FullName}}</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" id="deleteButton" class="btn btn-primary" data-id="{{Id}}">Delete</button>
+        </div>
+    </script>
+    <environment names="Development">
+        <script src="~/js/manage.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/manage.min.js" asp-append-version="true"></script>
+    </environment>
+    <script>
+        var CurrentBasePage = new ManageIndexPage(
+        {
+            urlFiles: 'api/Assembly/list',
+            urlReset:'@Url.Action("ResetAssemblies","Manage")'
+        });
+    </script>
+}
+<h2>@ViewBag.Title</h2>
+<div class="col-md-12">
+    <form asp-action="Save" enctype="multipart/form-data" method="post" role="form">
+   @* <form id="mform" enctype="multipart/form-data" method="post" role="form" action="/Manage/Save">*@
+        @*<input id="test" name="test" type="text" value="test"/>*@
+        <label class="custom-file">
+            <input type="file" name="file "id="file" class="custom-file-input">
+            <span class="custom-file-control"></span>
+        </label>
+        <input  class="btn btn-default" type="submit" value="Upload Files to Server"/>
+    </form>
+    <button id="save-form" class="btn btn-default">test</button>
+  
+</div>
+<h3>Assemblies list</h3>
+<div id="dlist" class="card-deck">
+</div>
+
+<div id="assModal" class="modal fade">
+    <div class="modal-dialog">
+        <div id="modal-content" class="modal-content">
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

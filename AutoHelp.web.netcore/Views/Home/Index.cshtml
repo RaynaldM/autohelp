@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home page";
+}
+@section head
+    {
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/home.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/home.min.css" asp-append-version="true" />
+    </environment>
+}
+@section scripts
+    {
+    <environment names="Development">
+        <script src="~/js/home.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/home.min.js" asp-append-version="true"></script>
+    </environment>
+    <script>
+        var CurrentBasePage = new HomePage(
+            {
+                urlFiles: 'api/Assembly/list',
+                urlDll: 'Detail/Index'
+            });
+    </script>
+    <script id="list-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div id="{{Id}}" class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{Name}}</h4>
+                <p class="card-text">{{FullName}}</p>
+            </div>
+        </div>
+        {{/each}}
+    </script>
+}
+<h2>Assemblies List</h2>
+<div id="dlist" class="card-deck">
+</div>

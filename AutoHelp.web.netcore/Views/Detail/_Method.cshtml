@@ -1,0 +1,10 @@
+﻿<div class="divScroll list-group">
+    {{#each Methods}}
+    <a href="#" data-type="0" data-subtype="0" data-id="{{Id}}" data-parent="{{ParentClass}}" data-namespace="{{../namespace}}" class="list-group-item popoverselect">
+        <h6 class="list-group-item-heading hideOverflow">{{Name}}({{formatedParams}})</h6>
+        <div class="list-group-item-text">
+            <small>{{Summary}}</small>
+        </div>
+    </a>
+    {{/each}}
+</div>

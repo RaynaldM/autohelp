@@ -1,0 +1,37 @@
+.namespacetitle {
+  padding-top: 2em;
+  padding-bottom: 2em; }
+
+.height30 {
+  min-height: 28%;
+  height: 28%; }
+
+.height50 {
+  min-height: 41%;
+  height: 41%; }
+
+.height80 {
+  height: 78%;
+  min-height: 78%;
+  max-height: 78%; }
+
+.fullheight, .divScroll {
+  height: 100%;
+  min-height: 100%; }
+
+.divScroll, .reduceDivScroll {
+  position: relative;
+  overflow-y: auto; }
+
+.divScroll {
+  max-height: 100%; }
+
+.reduceDivScroll {
+  height: 84%;
+  min-height: 84%;
+  max-height: 84%; }
+
+.popoverlarge {
+  min-width: 500px;
+  max-width: 500px;
+  width: 500px; }

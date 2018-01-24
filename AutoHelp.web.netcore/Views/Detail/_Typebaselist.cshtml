@@ -1,0 +1,10 @@
+﻿<script id="typebaselist-template" type="text/x-handlebars-template">
+    {{#each this}}
+    <a href="#" data-id="{{Id}}" data-namespace="{{namespace}}" class="list-group-item">
+        <h5 class="list-group-item-heading text-truncate" title="{{Name}}">{{Name}}</h5>
+        <div class="list-group-item-text">
+           {{Summary}}
+        </div>
+    </a>
+    {{/each}}
+</script>

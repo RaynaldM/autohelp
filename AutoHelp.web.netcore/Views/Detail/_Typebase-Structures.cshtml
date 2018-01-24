@@ -1,0 +1,21 @@
+﻿<script id="typebaseStructures-template" type="text/x-handlebars-template">
+    <div id="headdetail" class="col-md-12" style="height:24%;min-height: 24%;max-height: 24%">
+        @await Html.PartialAsync("_TypeBaseHead")
+    </div>
+    <div class="col-md-6" style="height:76%;min-height: 76%;max-height: 76%">
+        <h4>Methods</h4>
+        @await Html.PartialAsync("_Method")
+    </div>
+    <div class="col-md-6 height30">
+        <h5>Constructor</h5>
+        @await Html.PartialAsync("_Constructor")
+    </div>
+    <div class="col-md-6 height30">
+        <h5>Properties</h5>
+        @await Html.PartialAsync("_Property")
+    </div>
+    <div class="col-md-6 height30">
+        <h5>Members</h5>
+        @await Html.PartialAsync("_Member")
+    </div>
+</script>

@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Assembly Docs";
+}
+@section head
+    {
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/assemblydetail.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/assemblydetail.min.css" asp-append-version="true" />
+    </environment>
+}
+@section scripts
+    {
+    @await Html.PartialAsync("_Namespaces")
+    @await Html.PartialAsync("_Typebaselist")
+    @await Html.PartialAsync("_Typebase-Classes")
+    @await Html.PartialAsync("_Typebase-Enumerations")
+    @await Html.PartialAsync("_Typebase-Delegates")
+    @await Html.PartialAsync("_Typebase-Interfaces")
+    @await Html.PartialAsync("_Typebase-Structures")
+    @await Html.PartialAsync("_PopOver")
+    <script id="errorlisttemplate" type="text/x-handlebars-template">
+        {{#each this}}
+        <li class="list-group-item"><a class="small" href="#"><span class="label label-info">{{count}}</span>&nbsp;{{message}}</a></li>
+        {{/each}}
+    </script>
+    <environment names="Development">
+        <script src="~/js/assemblydetails.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/assemblydetails.min.js" asp-append-version="true"></script>
+    </environment>
+    <script>
+        var CurrentBasePage = new AssemblyDetailPage(
+            {
+                DllId: '@ViewData["id"]',
+                urlGet: '@Url.Content("~/api/assembly")'
+            });
+    </script>
+}
+<h1><span id="h2name"></span>&nbsp;<small class="text-muted"><span id="h2sname"></span></small></h1>
+<div class="row" style="height:85%;min-height: 85%;">
+    <div class="col-md-3 fullheight">
+        <h2 class="namespacetitle text-muted">Namespaces list</h2>
+        <div class="divScroll">
+            <div id="nmlist" class="list-group"></div>
+        </div>
+    </div>
+    <div class="col-md-9 border border-top-0 border-bottom-0 border-right-0">
+        <h2 class="namespacetitle" id="selected-namespace">Selected</h2>
+        <div class="row">
+            <div class="col-md-3 fullheight">
+
+                <h3 id="typebasetitle"></h3>
+                <div class="divScroll">
+                    <div id="nmsublist"></div>
+                </div>
+            </div>
+            <div id="typebase" class="col-md-9 row fullheight">
+            </div>
+        </div>
+    </div>
+</div>
