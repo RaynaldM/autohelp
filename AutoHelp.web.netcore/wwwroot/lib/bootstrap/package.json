@@ -89,7 +89,7 @@
     "postcss-cli": "^4.1.0",
     "qunit-phantomjs-runner": "^2.3.0",
     "qunitjs": "^2.4.0",
-    "shelljs": "^0.7.8",
+    "shelljs": "^0.8.5",
     "shx": "^0.2.2",
     "uglify-js": "^3.0.24"
   },
